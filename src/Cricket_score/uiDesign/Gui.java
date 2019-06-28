@@ -5,11 +5,17 @@
  */
 package Cricket_score.uiDesign;
 
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Pankajan
  */
 public interface Gui {
-   public 
+  public JComboBox getSelection();
+   public JTextField getMatchId();
+    public JTable getTable();
     
 }

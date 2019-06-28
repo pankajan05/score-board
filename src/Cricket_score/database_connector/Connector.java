@@ -9,5 +9,6 @@ import java.sql.Statement;
  */
 public interface Connector {
     
-    Statement connect();
+  public Statement connect();
+  public void close();
 }

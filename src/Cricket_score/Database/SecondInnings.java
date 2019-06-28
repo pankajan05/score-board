@@ -8,6 +8,7 @@ package Cricket_score.Database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,8 @@ import java.util.List;
  *
  * @author udith
  */
-public class SecondInnings {
+public class SecondInnings implements DataFetcher{
+    @Override
     public String[][] getDetails(){
         List<String[]> list = new ArrayList();
          
@@ -32,7 +34,7 @@ public class SecondInnings {
                list.add(array);
             }
             con.close();  
-            }catch(Exception e){ 
+            }catch(ClassNotFoundException | SQLException e){ 
                 System.out.println(e);
             } 
             

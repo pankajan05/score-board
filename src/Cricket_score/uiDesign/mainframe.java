@@ -10,9 +10,12 @@ import Cricket_score.Database.FirstInnings;
 
 import Cricket_score.Database.Overview;
 import Cricket_score.Database.SecondInnings;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.TableColumn;
 
-public class mainframe extends javax.swing.JFrame {
+public class mainframe extends javax.swing.JFrame implements Gui{
 
   
     public mainframe() {
@@ -150,7 +153,7 @@ public class mainframe extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    public void 
+    
     
     void setTable(String category){
         if("Overview".equals(category)){
@@ -189,7 +192,20 @@ public class mainframe extends javax.swing.JFrame {
         }
     }
 
-
+    @Override
+    public JComboBox getSelection(){
+        return this.jComboBox1;
+    }
+    
+    @Override
+    public JTextField getMatchId(){
+        return this.jTextField1;
+    }
+    
+    @Override
+    public JTable getTable(){
+        return this.jTable1;
+    }
     
     
     

@@ -5,8 +5,7 @@
  */
 package Cricket_score.Database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -16,8 +15,9 @@ import java.util.List;
  *
  * @author udith
  */
-public class Overview {
+public class Overview implements DataFetcher{
     
+    @Override
     public String[][] getDetails(){
         
         List<String[]> list = new ArrayList();

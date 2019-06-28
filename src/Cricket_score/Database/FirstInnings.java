@@ -16,7 +16,8 @@ import java.util.List;
  *
  * @author udith
  */
-public class FirstInnings {
+public class FirstInnings implements DataFetcher{
+    @Override
     public String[][] getDetails(){
         List<String[]> list = new ArrayList();
          
