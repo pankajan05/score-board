@@ -5,11 +5,22 @@
  */
 package Cricket_score.input;
 
+import Cricket_score.uiDesign.Gui;
+
 /**
  *
  * @author Pankajan
  */
-public interface Input {
-    public String getInput();
+public class MatchId implements Input{
+    Gui gui;
+    
+    public MatchId(Gui gui){
+        this.gui = gui;
+    }
+
+    @Override
+    public String getInput() {
+        return this.gui.toString();
+    }
     
 }

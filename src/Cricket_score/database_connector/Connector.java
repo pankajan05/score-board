@@ -1,7 +1,7 @@
 
 package Cricket_score.database_connector;
 
-import java.sql.Statement;
+import java.sql.ResultSet;
 
 /**
  *
@@ -9,6 +9,7 @@ import java.sql.Statement;
  */
 public interface Connector {
     
-  public Statement connect();
+  public void connect();
+  public ResultSet fetch(String sql);
   public void close();
 }

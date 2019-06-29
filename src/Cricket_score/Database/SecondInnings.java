@@ -5,38 +5,41 @@
  */
 package Cricket_score.Database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+import Cricket_score.database_connector.Connector;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author udith
  */
 public class SecondInnings implements DataFetcher{
+    private final Connector connector;
+    
+    public SecondInnings(Connector connector){
+        this.connector= connector;
+    }
     @Override
     public String[][] getDetails(){
+        this.connector.connect();
         List<String[]> list = new ArrayList();
          
-            try{  
-            Class.forName("com.mysql.jdbc.Driver"); 
-               System.out.println("about to connect");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/cricket","root","");  
-            //here sonoo is database name, root is username and password  
-            Statement stmt= con.createStatement();  
-            ResultSet rs=stmt.executeQuery("select * from bowling where matchId = '1'");  
+             
+            ResultSet rs=this.connector.fetch("select * from bowling where matchId = '1'");  
+        try {
             while(rs.next()){
-               String array[] = {rs.getString("wicket"),rs.getString("runs"),rs.getString("overs"),rs.getString("average")}; 
-               list.add(array);
+                String array[]= {rs.getString("wicket"),rs.getString("runs"),rs.getString("overs"),rs.getString("average")};
+                list.add(array);
             }
-            con.close();  
-            }catch(ClassNotFoundException | SQLException e){ 
-                System.out.println(e);
-            } 
+        } catch (SQLException ex) {
+            Logger.getLogger(SecondInnings.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            this.connector.close();  
+            
             
             String[][] output = new String[list.size()][4];
             for(int i=0;i<list.size();i++){

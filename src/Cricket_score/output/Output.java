@@ -11,4 +11,8 @@ package Cricket_score.output;
  */
 public interface Output {
     
+    public void Output(String str[][] );
+        
+    
+    
 }

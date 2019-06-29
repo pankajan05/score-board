@@ -6,10 +6,6 @@
 package Cricket_score.uiDesign;
 
 
-import Cricket_score.Database.FirstInnings;
-
-import Cricket_score.Database.Overview;
-import Cricket_score.Database.SecondInnings;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -20,6 +16,7 @@ public class mainframe extends javax.swing.JFrame implements Gui{
   
     public mainframe() {
         initComponents();
+        setVisible(true);
     }
 
    
@@ -140,13 +137,13 @@ public class mainframe extends javax.swing.JFrame implements Gui{
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        setTable(jComboBox1.getSelectedItem().toString());
+        
         
         //jTable1.addColumn();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        setTable(jComboBox1.getSelectedItem().toString());
+        
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -154,44 +151,7 @@ public class mainframe extends javax.swing.JFrame implements Gui{
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     
-    
-    void setTable(String category){
-        if("Overview".equals(category)){
-            Overview overview = new Overview();
-            String[][] str = overview.getDetails();
-
-            jTable1.setModel(new javax.swing.table.DefaultTableModel(
-               str,
-                new String [] {
-                    "Title 1", "Title 2", "Title 3", "Title 4"
-                }
-            ));
-        }else if("First Inning".equals(category)){
-            TableColumn c = new TableColumn(1);
-            c.setHeaderValue("column");
-            jTable1.getColumnModel().addColumn(c);
-            FirstInnings firstinning = new FirstInnings();
-            String[][] str =firstinning.getDetails();
-
-            jTable1.setModel(new javax.swing.table.DefaultTableModel(
-               str,
-                new String [] {
-                    "Title 13", "Title 23", "Title 33", "Title 43"
-                }
-            ));
-        }else if("Second Inning".equals(category)){        
-            SecondInnings secondinning = new SecondInnings();
-            String[][] str =secondinning.getDetails();
-
-            jTable1.setModel(new javax.swing.table.DefaultTableModel(
-               str,
-                new String [] {
-                    "Title 1", "Title 2", "Title 3", "Title 4"
-                }
-            ));
-        }
-    }
-
+   
     @Override
     public JComboBox getSelection(){
         return this.jComboBox1;

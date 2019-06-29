@@ -5,15 +5,12 @@
  */
 package Cricket_score;
 
-import Cricket_score.uiDesign.mainframe;
-
-
 public class Main {
 
 
     public static void main(String[] args) {
-        mainframe sfsfs = new mainframe();
-        sfsfs.setVisible(true);
+        CricketScoreBoard scoreboard = new CricketScoreBoard();
+        scoreboard.show();
     }
 
 }
