@@ -6,16 +6,18 @@
 package Cricket_score.uiDesign;
 
 
+import Cricket_score.Notifier.Notifier;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.TableColumn;
 
 public class mainframe extends javax.swing.JFrame implements Gui{
-
+    Notifier notifier;
   
-    public mainframe() {
+    public mainframe(Notifier notifier) {
         initComponents();
+        this.notifier = notifier;
         setVisible(true);
     }
 
@@ -137,7 +139,7 @@ public class mainframe extends javax.swing.JFrame implements Gui{
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        
+        this.notifier.nottify();
         
         //jTable1.addColumn();
     }//GEN-LAST:event_jButton1ActionPerformed

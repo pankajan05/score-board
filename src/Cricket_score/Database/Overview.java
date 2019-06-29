@@ -30,14 +30,14 @@ public class Overview implements DataFetcher{
     }
     
     @Override
-    public String[][] getDetails(){
+    public String[][] getDetails(String matchid){
         
             this.connector.connect();
             List<String[]> list = new ArrayList();
             
             
   
-            ResultSet rs=this.connector.fetch("select * from matches where matchId = '1'");
+            ResultSet rs=this.connector.fetch("select * from matches where matchId = '"+matchid+"'");
         try {
             while(rs.next()){
                 

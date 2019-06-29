@@ -20,7 +20,7 @@ public class MatchId implements Input{
 
     @Override
     public String getInput() {
-        return this.gui.toString();
+        return this.gui.getMatchId().getText();
     }
     
 }

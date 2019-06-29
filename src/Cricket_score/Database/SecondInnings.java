@@ -24,12 +24,12 @@ public class SecondInnings implements DataFetcher{
         this.connector= connector;
     }
     @Override
-    public String[][] getDetails(){
+    public String[][] getDetails(String matchid){
         this.connector.connect();
         List<String[]> list = new ArrayList();
          
              
-            ResultSet rs=this.connector.fetch("select * from bowling where matchId = '1'");  
+            ResultSet rs=this.connector.fetch("select * from bowling where matchId = '"+matchid+"'");  
         try {
             while(rs.next()){
                 String array[]= {rs.getString("wicket"),rs.getString("runs"),rs.getString("overs"),rs.getString("average")};

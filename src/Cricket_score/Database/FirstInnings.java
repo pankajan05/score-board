@@ -24,13 +24,14 @@ public class FirstInnings implements DataFetcher{
         this.connector = connector;
     }
     @Override
-    public String[][] getDetails(){
+    public String[][] getDetails(String matchid){
         
             List<String[]> list = new ArrayList();
             
             this.connector.connect();
             
-            ResultSet rs=this.connector.fetch("select * from batting where matchId = '1'");  
+            ResultSet rs=this.connector.fetch("select * from batting where matchId = '"+matchid+"'"); 
+            
         try {
             while(rs.next()){
                 

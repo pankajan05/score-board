@@ -25,7 +25,6 @@ public class Sqlconnector implements Connector{
     public void connect() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            System.out.println("about to connect");
             con=DriverManager.getConnection("jdbc:mysql://localhost:3306/cricket","root","");
             statement = con.createStatement();
         } catch (ClassNotFoundException | SQLException ex) {
